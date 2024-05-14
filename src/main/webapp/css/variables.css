@@ -1,0 +1,26 @@
+/* variables.css */
+
+/* Colores principales */
+:root {
+    --beige-100: #b39584;
+    --beige-50: #cbb8aa;
+    --beige-0: #ded3ca;
+    --azul-100: #142938;
+    --azul-50: #213a4b;
+    --azul-0: #275b77;
+    --neutral-50: #efeae5;
+    --neutral-0: #f8f6f4;
+}
+
+/* Otros colores */
+:root {
+  --background-color: var(--light-color); /* Color de fondo */
+  --text-color: var(--dark-color); /* Color de texto */
+  --link-color: var(--primary-color); /* Color de enlace */
+}
+
+/* Otros estilos */
+:root {
+  --border-radius: 5px; /* Radio de borde común */
+}
+

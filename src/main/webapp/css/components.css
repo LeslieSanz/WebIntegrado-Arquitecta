@@ -1,0 +1,17 @@
+/* components.css */
+
+/* Estilo básico de botón con el color de la variable principal */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: var(--azul-50); /* Utilizar la variable --primary-color */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilo de botón al pasar el ratón */
+.btn:hover {
+  background-color: var(--azul-0);
+}
+
