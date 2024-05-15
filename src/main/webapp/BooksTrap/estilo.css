@@ -5,8 +5,8 @@
     padding: 0 1rem;
 }
 .login-button{
-    background-color: #275B77;
-    color: #fff;
+    background-color: #213A4B;
+    color: #EFEAE5;
     font-size: 14px;
     padding: 8px 30px;
     border-radius: 5px;
@@ -15,7 +15,7 @@
 }
 
 .login-button:hover{
-    background-color: #213A4B;
+    background-color: #275B77;
 }
 
 .navbar-toggler {
@@ -29,13 +29,13 @@
 }
 
 .nav-link {
-    color: #275B77; /*Aqui tengo que cambiarle el color */
+    color: #213A4B; /*Aqui tengo que cambiarle el color */
     font-weight: 500;
     position: relative;
 }
 
 .nav-link:hover, .nav-link.active{
-    color: #213A4B; /*Aqui tambien le cambio el color si es necesario */
+    color: #275B77; /*Aqui tambien le cambio el color si es necesario */
 }
 
 .offcanvas.show:not(.hiding), .offcanvas.showing {
@@ -46,6 +46,10 @@
 
 
 @media (min-width: 800px){ /*768 tamaño de una tabler*/
+.nav-link {
+    color: #EFEAE5; /*Aqui tengo que cambiarle el color */
+
+}
     
     .navbar{
     background-color: #CBB8AA;
@@ -70,4 +74,8 @@
         width: 100%;
         visibility: visible;
     }
+    
+    .nav-link:hover, .nav-link.active{
+    color: #213A4B; /*Aqui tambien le cambio el color si es necesario */
+}
 }
