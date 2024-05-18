@@ -1,11 +1,11 @@
 
 .navbar{
-    background-color: #CBB8AA;
+    background-color: var(--beige-50);
     height: 80px;
     padding: 0 1rem;
 }
 .login-button{
-    background-color: #275B77;
+    background-color: var(--azul-50);
     color: #fff;
     font-size: 14px;
     padding: 8px 30px;

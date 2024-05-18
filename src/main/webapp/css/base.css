@@ -1,0 +1,19 @@
+/* Estilos para el cuerpo del documento */
+body {
+    margin: 0; /* Elimina el margen predeterminado */
+    padding: 0; /* Elimina el relleno predeterminado */
+    background-color: var(--neutral-0); /* Color de fondo del cuerpo */
+    font-family: var(--font-secondary);
+}
+
+/* Estilos para los encabezados */
+h1, h2, h3, h4{
+    font-family: var(--font-primary);
+}
+
+/* Estilos para los parrafos */
+p1, p2, p3{
+    font-family: var(--font-secondary);
+}
+
+
