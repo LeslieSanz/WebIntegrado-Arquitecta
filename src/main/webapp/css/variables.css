@@ -27,8 +27,8 @@
 :root {
   --h1-size: 5rem; /* 80px */
   --h2-size: 3.75rem; /* 60px */
-  --h3-size: 2rem; /* 32px */
-  --h4-size: 1.5rem; /* 24px */
+  --h3-size: 3rem; /* 48px */
+  --h4-size: 2rem; /* 32px */
 }
 
 /* Tamaños de texto para parrafos */
@@ -44,7 +44,7 @@
     --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-medium: 500;
-    --font-weight-bold: 700;
+    --font-weight-bold: 610;
 }
 
 

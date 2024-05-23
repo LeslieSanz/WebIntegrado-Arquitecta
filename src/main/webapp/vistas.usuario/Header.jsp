@@ -12,7 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link href="../css/main.css" rel="stylesheet" type="text/css"/>
         <link href="../css/header.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>Header</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg fixed-top">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 
-                <a href="#" class="login-button">Iniciar sesión</a>
+                <a href="#" class="btn btn-azul">Iniciar sesión</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
