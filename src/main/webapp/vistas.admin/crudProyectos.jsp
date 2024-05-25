@@ -68,7 +68,7 @@
                                   <th>Descripción Corta</th>
                                   <th>Descripción Larga</th>
                                   <th>Imagen</th>
-                                  <th>Nombre</th>
+                                  <th colspan="2">Acción</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -81,7 +81,7 @@
                                                +"<td>"+x.getImagen()
                                                );
                                     %>
-                                    <td><a href="#" class="btn btn-warning btn-sm"  data-bs-toggle="modal" data-bs-target="#modificarProyecto">
+                                    <td><a href="#" class="btn btn-warning btn-sm"  data-bs-toggle="modal" data-bs-target="#modificarUsuario">
                                            <i class="fas fa-edit"></i>
                                     </a>
                                     <td><a href="#" class="btn btn-danger btn-sm">
