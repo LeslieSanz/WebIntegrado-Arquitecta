@@ -4,33 +4,34 @@
         <servlet-name>prueba</servlet-name>
         <servlet-class>controlador.prueba</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>ProyectoCRUD</servlet-name>
         <servlet-class>controlador.ProyectoControl</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>controlUsuario</servlet-name>
         <servlet-class>controlador.controlUsuario</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>controlCurso</servlet-name>
+        <servlet-class>controlador.controlCurso</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>prueba</servlet-name>
         <url-pattern>/prueba</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>ProyectoCRUD</servlet-name>
         <url-pattern>/ProyectoCRUD</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>controlUsuario</servlet-name>
         <url-pattern>/controlUsuario</url-pattern>
     </servlet-mapping>
-
-
+    <servlet-mapping>
+        <servlet-name>controlCurso</servlet-name>
+        <url-pattern>/controlCurso</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
