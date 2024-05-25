@@ -139,14 +139,17 @@
                                 <i class="nav-icon fa-solid fa-table"></i>
                                 <p>
                                     Mantenimiento
-                                    <i class="nav-arrow fa-solid fa-angle-right"></i>
+            <i class="nav-arrow fa-solid fa-angle-right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+
                                       
                                     <a href="${pageContext.request.contextPath}/controlUsuario?opc=1" class="nav-link">
                                     
+
+                                    <a href="${pageContext.request.contextPath}/controlUsuario?opc=1" class="nav-link">
                                         <i class="nav-icon fa-regular fa-circle"></i>
                                         <p>Usuarios</p>
                                     </a>
@@ -158,7 +161,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="crudProyectos.jsp" class="nav-link">
+                                    <a href="${pageContext.request.contextPath}/ProyectoControl?opc=1" class="nav-link">
                                         <i class="nav-icon fa-regular fa-circle"></i>
                                         <p>Proyectos</p>
                                     </a>
@@ -212,7 +215,6 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
                     <!--end::Sidebar Menu-->
                 </nav>
             </div>
