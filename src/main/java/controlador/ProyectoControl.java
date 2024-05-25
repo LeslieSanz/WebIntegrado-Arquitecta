@@ -4,12 +4,14 @@
  */
 package controlador;
 
+import dao.ProyectosDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Proyecto;
 
 /**
  *
@@ -17,32 +19,39 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ProyectoControl extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    ProyectosDAO pDAO=new ProyectosDAO();
+    Proyecto proy=new Proyecto();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProyectoCRUD</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProyectoCRUD at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        int op=Integer.parseInt(request.getParameter("opc"));
+        if(op==1) listarUsuarios(request,response);
+//        if(op==2) (request,response);
     }
-
+    
+    protected void listarUsuarios(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setAttribute("dato", pDAO.ListarTodos());
+        String pag ="vistas.admin/crudProyectos.jsp";
+        request.getRequestDispatcher(pag).forward(request, response);
+    }
+    
+//    protected void adicionarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        response.setContentType("text/html;charset=UTF-8");
+//        proy.setCod(Integer.parseInt(request.getParameter("codrol")));
+//        proy.setNombre(request.getParameter("dni"));
+//        proy.setDescrip_corta(request.getParameter("dni"));
+//        proy.setDescr_larga(request.getParameter("pass"));
+//        proy.setImagen(Bytes.parseByte(request.getParameter("codrol")));
+//        proy.getCodUsu().setCod(request.getParameter("ape"));
+//        
+//        pDAO.agregarProyecto(proy);
+//        
+//        request.setAttribute("dato", pDAO.ListarTodos());
+//        String pag ="vistas.admin/crudUsuarios.jsp";
+//        request.getRequestDispatcher(pag).forward(request, response);
+//    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
