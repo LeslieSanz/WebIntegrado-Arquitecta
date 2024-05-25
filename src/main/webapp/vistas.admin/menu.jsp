@@ -156,7 +156,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../tables/simple.html" class="nav-link">
+                                    <a href="crudProyectos.jsp" class="nav-link">
                                         <i class="nav-icon fa-regular fa-circle"></i>
                                         <p>Proyectos</p>
                                     </a>
