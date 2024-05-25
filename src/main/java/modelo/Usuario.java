@@ -1,28 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
-/**
- *
- * @author yosse
- */
 public class Usuario {
-    private int rol;
     private String cod;
-    private String contraseña;
+    private int cod_rol;
+    private String dni;
+    private String password;
     private String nombre;
     private String apellidos;
     private String correo;
-
-    public int getRol() {
-        return rol;
-    }
-
-    public void setRol(int rol) {
-        this.rol = rol;
-    }
 
     public String getCod() {
         return cod;
@@ -32,12 +17,28 @@ public class Usuario {
         this.cod = cod;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public int getCod_rol() {
+        return cod_rol;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setCod_rol(int cod_rol) {
+        this.cod_rol = cod_rol;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNombre() {
@@ -63,9 +64,6 @@ public class Usuario {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    
-    
-    
-    
-    
+
+
 }
