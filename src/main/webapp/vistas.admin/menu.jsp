@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.3.0/css/all.min.css" integrity="sha256-/4UQcSmErDzPCMAiuOiWPVVsNN2s3ZY/NsmXNcj0IFc=" crossorigin="anonymous">
 
         <!--Plugin requerido de Bootstrap(AdminLTE)-->
-        <link href="../bootstrap/adminlte.css" rel="stylesheet" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/bootstrap/adminlte.css" rel="stylesheet" type="text/css"/>
         <!--end::Required Plugin(AdminLTE)-->
 
         <!-- Biblioteca de JS para los graficos -->
@@ -144,7 +144,10 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="crudUsuarios.jsp" class="nav-link">
+                                    <!--  SI DESCOMENTAN ESTO, TE REDIRIGE BIEN AL CRUD DE USUARIOS. PERO no a Cursos ni proyectos!
+                                    notengo idea de porque pasa eso
+                                    <a href="${pageContext.request.contextPath}/controlUsuario?opc=1" class="nav-link">
+                                    -->
                                         <i class="nav-icon fa-regular fa-circle"></i>
                                         <p>Usuarios</p>
                                     </a>
@@ -228,7 +231,7 @@
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-    <script src="../js/adminlte.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/adminlte.js" type="text/javascript"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script>
         const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
