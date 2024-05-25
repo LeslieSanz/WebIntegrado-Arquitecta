@@ -10,18 +10,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<<<<<<< HEAD:src/main/webapp/Header.jsp
         <link href="BooksTrap/estilo.css" rel="stylesheet" type="text/css"/>
         <link href="css/components.css" rel="stylesheet" type="text/css"/>
         <link href="css/main.css" rel="stylesheet" type="text/css"/>
         <link href="css/variables.css" rel="stylesheet" type="text/css"/>
         
         <title>JSP Page</title>
-=======
         <link href="../css/main.css" rel="stylesheet" type="text/css"/>
         <link href="../css/header.css" rel="stylesheet" type="text/css"/>
         <title>Header</title>
->>>>>>> 713c8e9cbbf5622fd14bf8a843fb2d179761d3cb:src/main/webapp/vistas.usuario/Header.jsp
     </head>
     <body>
         <nav class="navbar navbar-expand-lg fixed-top">
