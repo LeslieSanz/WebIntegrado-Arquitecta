@@ -19,7 +19,7 @@
 
     </head>
     <body>
-        <%@include file="header.jsp"%>
+        <%@include file="Header.jsp"%>
         
         <!-- Sección de bienvenida -->
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
