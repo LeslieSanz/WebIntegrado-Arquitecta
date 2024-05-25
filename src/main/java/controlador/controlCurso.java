@@ -22,7 +22,7 @@ public class controlCurso extends HttpServlet {
     protected void listarCursos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setAttribute("cursos", cursoDAO.listarTodos());
+        request.setAttribute("dato", cursoDAO.listarTodos());
         String page = "vistas.admin/crudCursos.jsp";
         request.getRequestDispatcher(page).forward(request, response);
     }
