@@ -144,9 +144,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                      SI DESCOMENTAN ESTO, TE REDIRIGE BIEN AL CRUD DE USUARIOS. PERO no a Cursos ni proyectos!
+                                      <!--SI DESCOMENTAN ESTO, TE REDIRIGE BIEN AL CRUD DE USUARIOS. PERO no a Cursos ni proyectos!
                                     notengo idea de porque pasa eso
-                                    <a href="${pageContext.request.contextPath}/controlUsuario?opc=1" class="nav-link">
+                                    <a href="${pageContext.request.contextPath}/controlUsuario?opc=1" class="nav-link"> -->
                                     
                                         <i class="nav-icon fa-regular fa-circle"></i>
                                         <p>Usuarios</p>
@@ -176,9 +176,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../forms/general.html" class="nav-link">
+                                    <a href="consultasCompra.jsp" class="nav-link">
                                         <i class="nav-icon fa-regular fa-circle"></i>
-                                        <p>Consultas en cascada?</p>
+                                        <p>Compras</p>
                                     </a>
                                 </li>
                             </ul>
