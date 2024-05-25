@@ -7,20 +7,41 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Usuario;
 
 public class controlUsuario extends HttpServlet {
     usuarioDAO ud=new usuarioDAO();
+    Usuario usu=new Usuario();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         int op=Integer.parseInt(request.getParameter("opc"));
-        if(op==1) listarAlumnos(request,response);
+        if(op==1) listarUsuarios(request,response);
+        if(op==2) adicionarUsuario(request,response);
     }
     
-    protected void listarAlumnos(HttpServletRequest request, HttpServletResponse response)
+    protected void listarUsuarios(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setAttribute("dato", ud.ListarTodos());
+        String pag ="vistas.admin/crudUsuarios.jsp";
+        request.getRequestDispatcher(pag).forward(request, response);
+    }
+    
+    protected void adicionarUsuario(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        usu.setCod(request.getParameter("cod"));
+        usu.setCod_rol(Integer.parseInt(request.getParameter("codrol")));
+        usu.setDni(request.getParameter("dni"));
+        usu.setPassword(request.getParameter("pass"));
+        usu.setNombre(request.getParameter("nom"));
+        usu.setApellidos(request.getParameter("ape"));
+        usu.setCorreo(request.getParameter("correo"));
+        
+        ud.agregarUsuario(usu);
+        
         request.setAttribute("dato", ud.ListarTodos());
         String pag ="vistas.admin/crudUsuarios.jsp";
         request.getRequestDispatcher(pag).forward(request, response);

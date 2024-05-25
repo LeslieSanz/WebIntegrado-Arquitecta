@@ -34,4 +34,25 @@ public class usuarioDAO {
         return lista;
     }
     
+    public void agregarUsuario(Usuario usuario) {
+    Connection cn = MySQLConexion.getConexion();
+    try {
+        String sql = "INSERT INTO usuario (cod, Rol_codRol, dni, password, nombre, apellidos, correo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement st = cn.prepareStatement(sql);
+        st.setString(1, usuario.getCod());
+        st.setInt(2, usuario.getCod_rol());
+        st.setString(3, usuario.getDni());
+        st.setString(4, usuario.getPassword());
+        st.setString(5, usuario.getNombre());
+        st.setString(6, usuario.getApellidos());
+        st.setString(7, usuario.getCorreo());
+        
+        st.executeUpdate();
+        
+        System.out.println("Usuario agregado exitosamente.");
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    } 
+    }
+    
 }

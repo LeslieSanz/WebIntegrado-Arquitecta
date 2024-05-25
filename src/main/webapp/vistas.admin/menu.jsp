@@ -144,10 +144,10 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <!--  SI DESCOMENTAN ESTO, TE REDIRIGE BIEN AL CRUD DE USUARIOS. PERO no a Cursos ni proyectos!
+                                      SI DESCOMENTAN ESTO, TE REDIRIGE BIEN AL CRUD DE USUARIOS. PERO no a Cursos ni proyectos!
                                     notengo idea de porque pasa eso
                                     <a href="${pageContext.request.contextPath}/controlUsuario?opc=1" class="nav-link">
-                                    -->
+                                    
                                         <i class="nav-icon fa-regular fa-circle"></i>
                                         <p>Usuarios</p>
                                     </a>
