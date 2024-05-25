@@ -13,11 +13,11 @@
         <servlet-class>controlador.controlUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>controlCurso</servlet-name>
-        <servlet-class>controlador.controlCurso</servlet-class>
-        <servlet-name>ProyectoControl</servlet-name>
-        <servlet-class>controlador.ProyectoControl</servlet-class>
+        <servlet-name>controlCursos</servlet-name>
+        <servlet-class>controlador.controlCursos</servlet-class>
     </servlet>
+    
+    
     <servlet-mapping>
         <servlet-name>prueba</servlet-name>
         <url-pattern>/prueba</url-pattern>
@@ -31,10 +31,12 @@
         <url-pattern>/controlUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>controlCurso</servlet-name>
-        <url-pattern>/controlCurso</url-pattern>
         <servlet-name>ProyectoControl</servlet-name>
         <url-pattern>/ProyectoControl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controlCursos</servlet-name>
+        <url-pattern>/controlCursos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
