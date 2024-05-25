@@ -6,21 +6,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Usuario;
 import util.MySQLConexion;
 
 public class cursoDAO {
-
-    public List<Curso> listarTodos() {
-        List<Curso> lista = new ArrayList<>();
-        Connection cn = null;
-        PreparedStatement st = null;
-        ResultSet rs = null;
-        try {
-            cn = MySQLConexion.getConexion();
-            String sql = "SELECT codCurso, nombreCurso, precio, Categoria_cosCat FROM curso";
-            st = cn.prepareStatement(sql);
-            rs = st.executeQuery();
-            while (rs.next()) {
+    
+    public List<Curso> listarTodos(){
+        List<Curso> lista=new ArrayList();
+        Connection cn=MySQLConexion.getConexion();
+        try{
+            String sql="SELECT codCurso, nombreCurso, precio, Categoria_cosCat FROM curso";
+            PreparedStatement st=cn.prepareStatement(sql);
+            ResultSet rs=st.executeQuery();
+            while(rs.next()){
                 Curso c = new Curso();
                 c.setIdCurso(rs.getInt("codCurso"));
                 c.setNombre(rs.getString("nombreCurso"));            
@@ -28,17 +26,8 @@ public class cursoDAO {
                 c.setCategoría(rs.getString("Categoria_cosCat"));
                 lista.add(c);
             }
-        } catch (Exception ex) {
-            ex.printStackTrace(); // Consider using a logger here
-        } finally {
-            // Cerrar ResultSet, PreparedStatement y Connection aquí
-            try {
-                if (rs != null) rs.close();
-                if (st != null) st.close();
-                if (cn != null) cn.close();
-            } catch (Exception e) {
-                e.printStackTrace(); // Consider using a logger here
-            }
+        }catch(Exception ex){
+            ex.printStackTrace();
         }
         return lista;
     }

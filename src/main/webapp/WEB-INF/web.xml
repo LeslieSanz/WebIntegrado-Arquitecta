@@ -14,7 +14,11 @@
     </servlet>
     <servlet>
         <servlet-name>controlCurso</servlet-name>
-        <servlet-class>controlador.controlCurso</servlet-class>
+        <servlet-class>Modelo.controlCurso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>controlCursos</servlet-name>
+        <servlet-class>controlador.controlCursos</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>prueba</servlet-name>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>controlCurso</servlet-name>
         <url-pattern>/controlCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controlCursos</servlet-name>
+        <url-pattern>/controlCursos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
