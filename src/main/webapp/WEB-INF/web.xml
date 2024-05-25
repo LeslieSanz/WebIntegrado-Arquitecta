@@ -4,49 +4,37 @@
         <servlet-name>prueba</servlet-name>
         <servlet-class>controlador.prueba</servlet-class>
     </servlet>
-<<<<<<< HEAD
     <servlet>
         <servlet-name>ProyectoCRUD</servlet-name>
         <servlet-class>controlador.ProyectoControl</servlet-class>
     </servlet>
-=======
->>>>>>> AndreaAO
     <servlet>
         <servlet-name>controlUsuario</servlet-name>
         <servlet-class>controlador.controlUsuario</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>controlCurso</servlet-name>
         <servlet-class>controlador.controlCurso</servlet-class>
-=======
         <servlet-name>ProyectoControl</servlet-name>
         <servlet-class>controlador.ProyectoControl</servlet-class>
->>>>>>> AndreaAO
     </servlet>
     <servlet-mapping>
         <servlet-name>prueba</servlet-name>
         <url-pattern>/prueba</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
     <servlet-mapping>
         <servlet-name>ProyectoCRUD</servlet-name>
         <url-pattern>/ProyectoCRUD</url-pattern>
     </servlet-mapping>
-=======
->>>>>>> AndreaAO
     <servlet-mapping>
         <servlet-name>controlUsuario</servlet-name>
         <url-pattern>/controlUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>controlCurso</servlet-name>
         <url-pattern>/controlCurso</url-pattern>
-=======
         <servlet-name>ProyectoControl</servlet-name>
         <url-pattern>/ProyectoControl</url-pattern>
->>>>>>> AndreaAO
     </servlet-mapping>
     <session-config>
         <session-timeout>
