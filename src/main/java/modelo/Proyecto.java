@@ -9,21 +9,32 @@ package modelo;
  * @author yosse
  */
 public class Proyecto {
-    private int cod;
+    private String cod;
     private String nombre;
     private String descrip_corta;
     private String descr_larga;
     private byte[] imagen;
-    private Usuario codUsu;
+    private String tipo;
 
-    public int getCod() {
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getCod() {
         return cod;
     }
 
-    public void setCod(int cod) {
+    public void setCod(String cod) {
         this.cod = cod;
     }
-
+    
+    
+    
+    
     public String getNombre() {
         return nombre;
     }
@@ -56,14 +67,7 @@ public class Proyecto {
         this.imagen = imagen;
     }
 
-    public Usuario getCodUsu() {
-        return codUsu;
-    }
-
-    public void setCodUsu(Usuario codUsu) {
-        this.codUsu = codUsu;
-    }
-    
+   
     
     
 }

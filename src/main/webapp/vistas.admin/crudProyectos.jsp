@@ -54,7 +54,7 @@
                     <div class="card">
                          <div class="card-header">
                             <h3 class="card-title">Se supone que debe ir texto acá</h3>
-                            <a href="#" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#agregarUsuario">
+                            <a href="#" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#agregarProyecto">
                                 Agregar proyecto
                             </a>
                           </div>
@@ -65,9 +65,9 @@
                                 <tr>
                                   <th>Código</th>
                                   <th>Nombre</th>
+                                  <th>Tipo de Proyecto</th>
                                   <th>Descripción Corta</th>
                                   <th>Descripción Larga</th>
-                                  <th>Imagen</th>
                                   <th colspan="2">Acción</th>
                                 </tr>
                                 </thead>
@@ -76,9 +76,9 @@
                                     for(Proyecto x: proyecto){
                                     out.print("<tr><td>"+x.getCod()
                                                +"<td>"+x.getNombre()
+                                               +"<td>"+x.getTipo()
                                                +"<td>"+x.getDescrip_corta()
                                                +"<td>"+x.getDescr_larga()
-                                               +"<td>"+x.getImagen()
                                                );
                                     %>
                                     <td><a href="#" class="btn btn-warning btn-sm"  data-bs-toggle="modal" data-bs-target="#modificarUsuario">
@@ -98,45 +98,45 @@
             </div>
             <!-- end:: Main content -->
             
-            <!-- Modal Agregar Proyecto -->
-            <div class="modal fade" id="agregarProyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Proyecto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form action="${pageContext.request.contextPath}/ProyectoControl?opc=2" method="post">
-                        <div class="form-group">
-                            <label>Codigo</label>
-                            <input type="input" name="cod" >
-                        </div>
-                        <div class="form-group">
-                            <label>Nombre</label>
-                            <input type="input" name="codrol" >
-                        </div>
-                        <div class="form-group">
-                            <label>Descripción corta</label>
-                            <input type="input" name="dni">
-                        </div>
-                        <div class="form-group">
-                            <label>Descripción corta</label>
-                            <input type="input" name="pass">
-                        </div>
-                        <div class="form-group">
-                            <label>Imagen</label>
-                            <input type="input" name="nom">
-                        </div>
-                       
-                      <button type="submit" class="btn btn-primary">Agregar</button>
-                    </form>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-            
+             <!-- Modal Agregar Curso -->
+             <div class="modal fade" id="agregarProyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 <div class="modal-dialog">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <h5 class="modal-title" id="exampleModalLabel">Agregar Proyecto</h5>
+                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                         </div>
+                         <div class="modal-body">
+                             <form action="${pageContext.request.contextPath}/ProyectoControl?opc=2" method="post">
+                                 <div class="form-group">
+                                     <label>Codigo</label>
+                                     <input type="input" name="cod" >
+                                 </div>
+                                 <div class="form-group">
+                                     <label>Nombre</label>
+                                     <input type="input" name="nom" >
+                                 </div>
+                                 <div class="form-group">
+                                     <label>Tipo</label>
+                                     <input type="input" name="tipo">
+                                 </div>
+                                 <div class="form-group">
+                                     <label>Descripción corta</label>
+                                     <input type="input" name="dC">
+                                 </div>
+                                 <div class="form-group">
+                                     <label>Descripción larga</label>
+                                     <input type="input" name="dL">
+                                 </div>
+
+                                 <button type="submit" class="btn btn-primary">Agregar</button>
+                             </form>
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
             <!-- Modal Modificar Usuario -->
             <div class="modal fade" id="modificarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
