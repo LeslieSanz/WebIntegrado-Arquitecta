@@ -4,7 +4,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cursos</title>
+        <title>Consultas | Compras </title>
+        <link rel="icon" href="${pageContext.request.contextPath}/img/LOGO AZUL.png" type="image/png">
     </head>
     <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <!--Inicio::App Wrapper-->
@@ -74,8 +75,8 @@
                           </div>
                         
                         <div class="card-body">
-                          <table id="example2" class="table table-bordered table-hover">
-                                <thead>
+                          <table class="table table-bordered table-hover">
+                                <thead class="bg-dark-subtle">
                                 <tr>
                                   <th>Código</th>
                                   <th>Rol</th>
@@ -84,7 +85,7 @@
                                   <th>Nombre</th>
                                   <th>Apellidos</th>
                                   <th>Correo</th>
-                                  <th>Ver compras</th>
+                                  <th>Acción</th>
                                 </tr>
                                 </thead>
                                 
@@ -100,14 +101,23 @@
                                                     +"<td>"+x.getCorreo()
                                                     );
                                             
-
+                                        if(x.getCod_rol()== 1){ //Si es admin, van a mostrarse los proyectos que ha agregado
                                         %>
-                                   <td><a href="control?opc=5&id=" 
-                                   class="btn btn-primary">
-                                    <i class="fa-solid fa-shop"></i>
-                                </a> 
+                                        <td><a href="#" 
+                                       class="btn btn-primary"> 
+                                        <i class="fa-solid fa-list-check"></i>
+                                       </a> 
+                                       <% } else {  //Si es usuario, entonces sus compras
+                                       %>
+                                       <td><a href="${pageContext.request.contextPath}/controlCompras?opc=1&codusu=<%=x.getCod()%>&nomusu=<%=x.getNombre()%>" 
+                                       class="btn btn-primary">
+                                        <i class="fa-solid fa-shop"></i>
+                                       </a> 
+                                       
+                                   
                                 <% 
                                     }
+                                  }
                                 %>
                                 </tbody>
                                 </table>

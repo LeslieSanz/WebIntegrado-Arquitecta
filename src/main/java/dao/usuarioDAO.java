@@ -34,25 +34,77 @@ public class usuarioDAO {
         return lista;
     }
     
-    public void agregarUsuario(Usuario usuario) {
+    public void agregarUsuario(Usuario u) {
     Connection cn = MySQLConexion.getConexion();
     try {
-        String sql = "INSERT INTO usuario (cod, Rol_codRol, dni, password, nombre, apellidos, correo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario (Rol_codRol, dni, password, nombre, apellidos, correo) VALUES (?, ?, ?, ?, ?, ?)";
         PreparedStatement st = cn.prepareStatement(sql);
-        st.setString(1, usuario.getCod());
-        st.setInt(2, usuario.getCod_rol());
-        st.setString(3, usuario.getDni());
-        st.setString(4, usuario.getPassword());
-        st.setString(5, usuario.getNombre());
-        st.setString(6, usuario.getApellidos());
-        st.setString(7, usuario.getCorreo());
-        
+        st.setInt(1, u.getCod_rol());
+        st.setString(2, u.getDni());
+        st.setString(3, u.getPassword());
+        st.setString(4, u.getNombre());
+        st.setString(5, u.getApellidos());
+        st.setString(6, u.getCorreo());
         st.executeUpdate();
-        
         System.out.println("Usuario agregado exitosamente.");
         } catch (Exception ex) {
             ex.printStackTrace();
         } 
+    }
+    
+    public void actualizarUsuario(Usuario u) {
+        Connection cn = MySQLConexion.getConexion();
+        try {
+            String sql =  "UPDATE usuario SET dni=?, nombre=?, apellidos=?, correo=? WHERE cod ='"+u.getCod()+"'";
+            PreparedStatement st = cn.prepareStatement(sql);
+            st.setString(1, u.getDni());
+            st.setString(2, u.getNombre());
+            st.setString(3, u.getApellidos());
+            st.setString(4, u.getCorreo());
+            st.executeUpdate();
+            System.out.println("Usuario actualizado exitosamente.");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } 
+    }
+    
+    public boolean eliminarUsuario(String codigo) {
+        Connection cn = MySQLConexion.getConexion();
+        try {
+            String sql = "delete from usuario where cod = '"+codigo+"'";
+            PreparedStatement st = cn.prepareStatement(sql);
+            st.executeUpdate();
+            
+             System.out.println("Usuario eliminado exitosamente.");
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        } 
+    }
+    
+    //Buscar por Codigo
+     public Usuario buscarUsuario(String cod){
+        Usuario a = null;
+        Connection cn=MySQLConexion.getConexion();
+        try{
+            String sql="SELECT cod,dni, password, nombre, apellidos, correo FROM usuario where cod=?";
+            PreparedStatement st=cn.prepareStatement(sql);
+            st.setString(1, cod);
+            ResultSet rs=st.executeQuery();
+            while(rs.next()){
+                a=new  Usuario();
+                a.setCod(rs.getString(1));
+                a.setDni(rs.getString(2));
+                a.setPassword(rs.getString(3));
+                a.setNombre(rs.getString(4));
+                a.setApellidos(rs.getString(5));
+                a.setCorreo(rs.getString(6));
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return a;
     }
     
     //Lista de Usuarios por Rol
@@ -80,5 +132,8 @@ public class usuarioDAO {
         }
         return lista;
     }
+    
+    
+    
     
 }
