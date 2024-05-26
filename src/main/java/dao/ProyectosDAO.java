@@ -64,35 +64,64 @@ public class ProyectosDAO {
     }
          
      //corregir
-  public void cambio(Proyecto p){
-     Connection cn = MySQLConexion.getConexion();
-     try{
-         String sql="{call modificarProyecto(?,?,?,?,?,?)}";
-         CallableStatement st=cn.prepareCall(sql);
-        st.setString(1, p.getCod());
-        st.setString(2, p.getDescrip_corta());
-        st.setString(3, p.getDescr_larga());
-        st.setBytes(4, p.getImagen());
-        st.setString(5, p.getNombre());
-         st.executeUpdate();
-     }catch(Exception ex){
-         ex.printStackTrace();
-     }
- }
   
-  //Borrar
-  
- public void borra(String cod){
-     Connection cn = MySQLConexion.getConexion();
-     try{
-         String sql="{call spDelAlu(?)}";
-         CallableStatement st=cn.prepareCall(sql);
-         st.setString(1, cod);
-         st.executeUpdate();
-     }catch(Exception ex){
-         ex.printStackTrace();
-     }
- }
+    
+    
+    public boolean eliminarProyecto(String codigo) {
+        Connection cn = MySQLConexion.getConexion();
+        try {
+            String sql = "delete from proyecto where codProy= '"+codigo+"'";
+            PreparedStatement st = cn.prepareStatement(sql);
+            st.executeUpdate();
+            
+             System.out.println("Proyecto eliminado exitosamente.");
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        } 
+    }
+      
+    
+    //Buscar por Codigo
+     public Proyecto buscarProyecto(String cod){
+        Proyecto a = null;
+        Connection cn=MySQLConexion.getConexion();
+        try{
+            String sql="SELECT codProy, nombre, codTipo, descrip_cor, descrip_lar FROM proyecto where codProy=?";
+            PreparedStatement st=cn.prepareStatement(sql);
+            st.setString(1, cod);
+            ResultSet rs=st.executeQuery();
+            while(rs.next()){
+                a=new  Proyecto();
+                a.setCod(rs.getString(1));
+                a.setNombre(rs.getString(2));
+                a.setTipo(rs.getString(3));
+                a.setDescrip_corta(rs.getString(4));
+                a.setDescr_larga(rs.getString(5));
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return a;
+    }
+     
+     public void actualizarProyecto(Proyecto p) {
+        Connection cn = MySQLConexion.getConexion();
+        try {
+            String sql =  "UPDATE proyecto SET codProy=?, nombre=?, codTipo=?, descrip_cor=?, descrip_lar=?  WHERE codProy ='"+p.getCod()+"'";
+            PreparedStatement st = cn.prepareStatement(sql);
+            st.setString(1, p.getCod());
+            st.setString(2, p.getNombre());
+            st.setString(3, p.getTipo());
+            st.setString(4, p.getDescrip_corta());
+            st.setString(5, p.getDescr_larga());
+            st.executeUpdate();
+            System.out.println("Proyecto actualizado exitosamente.");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } 
+    }
     
     
     
