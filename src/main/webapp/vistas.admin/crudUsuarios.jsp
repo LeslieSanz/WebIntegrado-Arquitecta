@@ -53,8 +53,8 @@
                           </div>
                         
                         <div class="card-body">
-                          <table id="example2" class="table table-bordered table-hover">
-                                <thead>
+                          <table id="tablax" class="table table-striped table-hover">
+                                <thead class=" bg-dark-subtle">
                                 <tr>
                                   <th>Código</th>
                                   <th>Rol</th>
@@ -63,7 +63,8 @@
                                   <th>Nombre</th>
                                   <th>Apellidos</th>
                                   <th>Correo</th>
-                                  <th colspan="2">Acción</th>
+                                  <th>Editar</th>
+                                  <th>Eliminar</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -166,5 +167,47 @@
         
     </div>
     <!--end::App Wrapper-->
+    
+     <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+        </script>
+    <!-- DATATABLES -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
+    </script>
+    <!-- BOOTSTRAP -->
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#tablax').DataTable({
+                language: {
+                    processing: "Tratamiento en curso...",
+                    search: "Buscar&nbsp;:",
+                    lengthMenu: "Agrupar de _MENU_ items",
+                    info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
+                    infoEmpty: "No existen datos.",
+                    infoFiltered: "(filtrado de _MAX_ elementos en total)",
+                    infoPostFix: "",
+                    loadingRecords: "Cargando...",
+                    zeroRecords: "No se encontraron datos con tu busqueda",
+                    emptyTable: "No hay datos disponibles en la tabla.",
+                    paginate: {
+                        first: "Primero",
+                        previous: "Anterior",
+                        next: "Siguiente",
+                        last: "Ultimo"
+                    },
+                    aria: {
+                        sortAscending: ": active para ordenar la columna en orden ascendente",
+                        sortDescending: ": active para ordenar la columna en orden descendente"
+                    }
+                },
+                scrollY: 400,
+                lengthMenu: [ [5,10, 25, -1], [5,10, 25, "All"] ],
+            });
+        });
+    </script>
+    
     </body>
 </html>

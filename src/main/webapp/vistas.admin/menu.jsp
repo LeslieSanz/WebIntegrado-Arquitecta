@@ -23,7 +23,7 @@
         <!--Plugin requerido de Bootstrap(AdminLTE)-->
         <link href="${pageContext.request.contextPath}/bootstrap/adminlte.css" rel="stylesheet" type="text/css"/>
         <!--end::Required Plugin(AdminLTE)-->
-
+        <link href="${pageContext.request.contextPath}/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
         <!-- Biblioteca de JS para los graficos -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css" integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous">
 
