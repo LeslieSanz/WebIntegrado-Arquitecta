@@ -54,7 +54,7 @@
                         
                         <div class="card-body">
                           <table id="tablax" class="table table-striped table-hover">
-                                <thead class=" bg-dark-subtle">
+                                <thead class="bg-dark-subtle">
                                 <tr>
                                   <th>Código</th>
                                   <th>Rol</th>

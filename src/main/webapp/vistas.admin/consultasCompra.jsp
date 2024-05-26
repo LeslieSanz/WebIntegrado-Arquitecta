@@ -74,8 +74,8 @@
                           </div>
                         
                         <div class="card-body">
-                          <table id="example2" class="table table-bordered table-hover">
-                                <thead>
+                          <table class="table table-bordered table-hover">
+                                <thead class="bg-dark-subtle">
                                 <tr>
                                   <th>Código</th>
                                   <th>Rol</th>

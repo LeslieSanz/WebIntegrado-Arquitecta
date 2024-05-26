@@ -65,13 +65,13 @@
                     <!--Inicio::User Menu Dropdown-->
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img src="../img/user.png" class="user-image rounded-circle shadow" alt="User Image">
+                            <img src="${pageContext.request.contextPath}/img/user.png" class="user-image rounded-circle shadow" alt="User Image">
                             <span class="d-none d-md-inline">Luis Miguel Paz</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                             <!--begin::User Image-->
                             <li class="user-header text-bg-primary">
-                                <img src="../img/user.png" class="rounded-circle shadow" alt="User Image">
+                                <img src="${pageContext.request.contextPath}/img/user.png" class="rounded-circle shadow" alt="User Image">
                                 <p>
                                     Luis Miguel Paz - Web Developer
                                     <small>Member since Nov. 2023</small>
@@ -118,9 +118,9 @@
             <!--begin::Sidebar Brand-->
             <div class="sidebar-brand">
                 <!--begin::Brand Link-->
-                <a href="../index.html" class="brand-link">
+                <a href="${pageContext.request.contextPath}/vistas.admin/menu.jsp" class="brand-link">
                     <!--begin::Brand Image-->
-                    <img src="../img/LOGO BLANCO.png" alt="Logo" class="brand-image opacity-75 shadow">
+                    <img src="${pageContext.request.contextPath}/img/LOGO BLANCO.png" alt="Logo" class="brand-image opacity-75 shadow">
                     <!--end::Brand Image-->
                     <!--begin::Brand Text-->
                     <span class="brand-text fw-light">Lizbet Huamani</span>
@@ -144,25 +144,20 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-
-                                      
                                     <a href="${pageContext.request.contextPath}/controlUsuario?opc=1" class="nav-link">
-                                    
-
-                                    <a href="${pageContext.request.contextPath}/controlUsuario?opc=1" class="nav-link">
-                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <i class="nav-icon fa-solid fa-user"></i>
                                         <p>Usuarios</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="${pageContext.request.contextPath}/controlCursos?opc=1" class="nav-link">
-                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <i class="nav-icon fa-solid fa-book"></i>
                                         <p>Cursos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="${pageContext.request.contextPath}/ProyectoControl?opc=1" class="nav-link">
-                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <i class="nav-icon fa-solid fa-house"></i>
                                         <p>Proyectos</p>
                                     </a>
                                 </li>
@@ -178,8 +173,8 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="consultasCompra.jsp" class="nav-link">
-                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                    <a href="${pageContext.request.contextPath}/vistas.admin/consultasCompra.jsp" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-shop"></i>
                                         <p>Compras</p>
                                     </a>
                                 </li>
@@ -197,19 +192,19 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="../forms/general.html" class="nav-link">
-                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <i class="nav-icon fas fa-chart-pie"></i>
                                         <p>Gráfico 1</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="../forms/general.html" class="nav-link">
-                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <i class="nav-icon fas fa-chart-area"></i>
                                         <p>Gráfico 2</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="../forms/general.html" class="nav-link">
-                                        <i class="nav-icon fa-regular fa-circle"></i>
+                                        <i class="nav-icon fas fa-chart-bar"></i>
                                         <p>Gráfico 3</p>
                                     </a>
                                 </li>
