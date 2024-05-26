@@ -7,6 +7,7 @@ package controlador;
 import dao.cursoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,7 +34,15 @@ public class controlCursos extends HttpServlet {
     protected void listarCursos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setAttribute("dato", cursoDAO.listarTodos());
+        
+        List<Curso> cursos = cursoDAO.listarTodos();
+        request.setAttribute("dato", cursos);
+        
+        // Verificación de los datos recibidos
+        System.out.println("Cursos recibidos: ");
+        for (Curso curso : cursos) {
+            System.out.println("Código: " + curso.getIdCurso()+ ", Nombre: " + curso.getNombre());
+        }
         String pag ="vistas.admin/crudCursos.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
     }

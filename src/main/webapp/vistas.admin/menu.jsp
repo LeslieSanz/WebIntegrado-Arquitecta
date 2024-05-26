@@ -155,7 +155,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="${pageContext.request.contextPath}/controlCurso?opc=1" class="nav-link">
+                                    <a href="${pageContext.request.contextPath}/controlCursos?opc=1" class="nav-link">
                                         <i class="nav-icon fa-regular fa-circle"></i>
                                         <p>Cursos</p>
                                     </a>

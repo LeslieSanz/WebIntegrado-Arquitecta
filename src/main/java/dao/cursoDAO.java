@@ -20,7 +20,7 @@ public class cursoDAO {
             ResultSet rs=st.executeQuery();
             while(rs.next()){
                 Curso c = new Curso();
-                c.setIdCurso(rs.getInt("codCurso"));
+                c.setIdCurso(rs.getString("codCurso"));
                 c.setNombre(rs.getString("nombreCurso"));            
                 c.setPrecio(rs.getDouble("precio"));
                 c.setCategoría(rs.getString("Categoria_cosCat"));
@@ -67,7 +67,7 @@ public class cursoDAO {
             st.setString(1, curso.getNombre());
             st.setDouble(2, curso.getPrecio());
             st.setString(3, curso.getCategoría());
-            st.setInt(4, curso.getIdCurso());
+            st.setString(4, curso.getIdCurso());
             int resultado = st.executeUpdate();
             return resultado > 0;
         } catch (Exception ex) {

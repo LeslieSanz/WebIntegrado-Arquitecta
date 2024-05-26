@@ -1,18 +1,10 @@
 package modelo;
 
 public class Curso {
-    private int idCurso;
+    private String idCurso;
     private String nombre;
     private String categoría;
     private double precio;
-
-    public int getIdCurso() {
-        return idCurso;
-    }
-
-    public void setIdCurso(int idCurso) {
-        this.idCurso = idCurso;
-    }
 
     public String getNombre() {
         return nombre;
@@ -36,6 +28,14 @@ public class Curso {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public String getIdCurso() {
+        return idCurso;
+    }
+
+    public void setIdCurso(String idCurso) {
+        this.idCurso = idCurso;
     }
 
 
