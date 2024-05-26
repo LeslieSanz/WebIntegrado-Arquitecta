@@ -12,7 +12,7 @@
         <!--Fuentes-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
         <!--Plugin para las barras de desplazamiento (OverlayScrollbars)-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.1.0/styles/overlayscrollbars.min.css" integrity="sha256-LWLZPJ7X1jJLI5OG5695qDemW1qQ7lNdbTfQ64ylbUY=" crossorigin="anonymous">
@@ -123,7 +123,7 @@
                     <img src="${pageContext.request.contextPath}/img/LOGO BLANCO.png" alt="Logo" class="brand-image opacity-75 shadow">
                     <!--end::Brand Image-->
                     <!--begin::Brand Text-->
-                    <span class="brand-text fw-light">Lizbet Huamani</span>
+                    <span class="brand-text fw-light"><strong>Lizbet Huamani</strong></span>
                     <!--end::Brand Text-->
                 </a>
                 <!--end::Brand Link-->

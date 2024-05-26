@@ -25,7 +25,7 @@
                     <!--begin::Row-->
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="mb-0">El CRUD de usuarios va acá</h3>
+                            <h3 class="mb-0">Mantenimiento de usuarios</h3>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-end">
@@ -47,7 +47,7 @@
                 <div class="col-12">
                     <div class="card">
                          <div class="card-header">
-                            <h3 class="card-title">Se supone que debe ir texto acá</h3>
+                            <h3 class="card-title">Información básica</h3>
                             <a href="#" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#agregarUsuario">
                                 Agregar usuario
                             </a>

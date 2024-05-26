@@ -31,7 +31,7 @@
                     <!--begin::Row-->
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="mb-0">Aca se consultan las compras de los usuarios</h3>
+                            <h3 class="mb-0">Consulta de compras</h3>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-end">
