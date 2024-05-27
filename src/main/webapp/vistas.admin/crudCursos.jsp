@@ -8,7 +8,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Cursos</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- Agregar estilos y scripts de DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 </head>
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -47,14 +46,15 @@
                       </div>
                     
                     <div class="card-body">
-                      <table id="example2" class="table table-bordered table-hover">
-                            <thead>
+                      <table id="tablax" class="table table-striped table-hover">
+                            <thead class="bg-dark-subtle">
                             <tr>
                               <th>Código</th>
                               <th>Nombre</th>
                               <th>Precio</th>
                               <th>Categoría</th>
-                              <th colspan="2">Acción</th>
+                              <th>Editar</th>
+                              <th>Eliminar</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -79,7 +79,6 @@
 <%
     }
 %>
-
                             </tbody>
                       </table>
                       </div>
@@ -110,10 +109,10 @@
                         <input type="number" name="precio" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Categoría</label>
+                        <label>Categoria</label>
                         <input type="text" name="categoria" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
               </div>
             </div>
@@ -130,7 +129,10 @@
               </div>
               <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/controlCursos?opc=3" method="post">
-                    <input type="hidden" id="idCurso" name="idCurso">
+                    <div class="form-group">
+                        <label>Código</label>
+                        <input type="text" id="codigo" name="idCurso" class="form-control">
+                    </div>
                     <div class="form-group">
                         <label>Nombre</label>
                         <input type="text" id="nombre" name="nombre" class="form-control">
@@ -140,88 +142,86 @@
                         <input type="number" id="precio" name="precio" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Categoría</label>
+                        <label>Categoria</label>
                         <input type="text" id="categoria" name="categoria" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
+        
     </main>
 </div>
 
-<!-- Scripts para DataTables -->
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+        </script>
+    <!-- DATATABLES -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
+    </script>
+    <!-- BOOTSTRAP -->
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js">
+    </script>
 
 <script>
-    $(document).ready(function() {
-        $('#example2').DataTable({
-            language: {
-                processing: "Procesando...",
-                search: "Buscar:",
-                lengthMenu: "Mostrar _MENU_ cursos",
-                info: "Mostrando _START_ a _END_ de _TOTAL_ cursos",
-                infoEmpty: "Mostrando 0 a 0 de 0 cursos",
-                infoFiltered: "(filtrado de _MAX_ cursos totales)",
-                infoPostFix: "",
-                loadingRecords: "Cargando...",
-                zeroRecords: "No se encontraron cursos coincidentes",
-                emptyTable: "No hay datos disponibles en la tabla",
-                paginate: {
-                    first: "Primero",
-                    previous: "Anterior",
-                    next: "Siguiente",
-                    last: "Último"
+        $(document).ready(function () {
+            $('#tablax').DataTable({
+                language: {
+                    processing: "Tratamiento en curso...",
+                    search: "Buscar&nbsp;:",
+                    lengthMenu: "Agrupar de _MENU_ items",
+                    info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
+                    infoEmpty: "No existen datos.",
+                    infoFiltered: "(filtrado de _MAX_ elementos en total)",
+                    infoPostFix: "",
+                    loadingRecords: "Cargando...",
+                    zeroRecords: "No se encontraron datos con tu busqueda",
+                    emptyTable: "No hay datos disponibles en la tabla.",
+                    paginate: {
+                        first: "Primero",
+                        previous: "Anterior",
+                        next: "Siguiente",
+                        last: "Ultimo"
+                    },
+                    aria: {
+                        sortAscending: ": active para ordenar la columna en orden ascendente",
+                        sortDescending: ": active para ordenar la columna en orden descendente"
+                    }
                 },
-                aria: {
-                    sortAscending: ": Activar para ordenar la columna en orden ascendente",
-                    sortDescending: ": Activar para ordenar la columna en orden descendente"
-                }
-            },
-            scrollY: 400,
-            lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "Todos"]]
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('.delete-course').on('click', function(event) {
-            event.preventDefault();
-            var url = $(this).attr('href');
-            var courseId = $(this).data('course-id');
-        
-            // Show the SweetAlert confirmation
-            swal({
-                title: "¿Está seguro que desea eliminar el curso seleccionado?",
-                text: "Una vez eliminado no se podrá revertir",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    // Redireccionar a la URL de eliminación si el usuario confirma
-                    window.location.href = url;
-                } else {
-                    swal("Operación cancelada");
-                }
+                scrollY: 400,
+                lengthMenu: [ [5,10, 25, -1], [5,10, 25, "All"] ],
             });
         });
-    });
-</script>
-
+    </script>
 <script>
-    function editarCurso(id, nombre, precio, categoria) {
-        document.getElementById('idCurso').value = id;
-        document.getElementById('nombre').value = nombre;
-        document.getElementById('precio').value = precio;
-        document.getElementById('categoria').value = categoria;
-    }
+  
+  function editarCurso(codigo, nombre, precio, categoria){
+    $("#codigo").val(codigo);
+    $("#nombre").val(nombre);
+    $("#precio").val(precio);
+    $("#categoria").val(categoria);
+  }
+
+  $(".delete-course").click(function(e){
+    e.preventDefault();
+    var courseId = $(this).data("course-id");
+    var url = $(this).attr('href');
+
+    swal({
+      title: "¿Estás seguro?",
+      text: "¡Una vez eliminado, no podrás recuperar este curso!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location.href = url;
+      }
+    });
+  });
 </script>
 </body>
 </html>

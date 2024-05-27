@@ -15,6 +15,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link href="../bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
         <!--Inicio::App Wrapper-->
@@ -84,11 +85,13 @@
                                         %>
                                     <td><a href="#" class="btn btn-warning btn-sm edit-user" data-user-id="<%= x.getCod()%>" data-bs-toggle="modal" data-bs-target="#modificarProyecto">
                                             <i class="fas fa-edit"></i> 
-                                        </a>
-
-                                    <td><a href="${pageContext.request.contextPath}/ProyectoControl?opc=5&id=<%=x.getCod()%>" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
+                                        </a>  
+                                        <td><a href="${pageContext.request.contextPath}/ProyectoControl?opc=5&id=<%=x.getCod()%>" class="btn btn-danger btn-sm delete-user" data-user-id="<%=x.getCod()%>">
+                                         <i class="fas fa-trash"></i>
+                                          </a>
+                                        </td>
+                                            
+                                          
                                         <%
                                             }
                                         %>
@@ -283,6 +286,32 @@
                 });
             });
         </script>
+        
+        <script type="text/javascript">
+    $(document).ready(function() {
+        $('.delete-user').on('click', function(event) {
+            event.preventDefault();
+            var url = $(this).attr('href');
+            var userId = $(this).data('user-id');
+            
+            swal({
+                title: "¿Está seguro que desea eliminar el proyecto seleccionado?",
+                text: "Una vez eliminado no se podrá revertir los cambios",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    // Redirigir a la URL para eliminar el usuario
+                    window.location.href = url;
+                } else {
+                    dispose();
+                }
+            });
+        });
+    });
+</script>
 
 
     </body>

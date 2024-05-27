@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
+
 package controlador;
 
 import dao.cursoDAO;
@@ -14,10 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Curso;
 
-/**
- *
- * @author luism
- */
 public class controlCursos extends HttpServlet {
 
     cursoDAO cursoDAO = new cursoDAO();
@@ -26,62 +23,56 @@ public class controlCursos extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int op=Integer.parseInt(request.getParameter("opc"));
-        if(op==1) listarCursos(request,response);
-        if(op==2) insertarCurso(request,response);
-        if(op==3) actualizarCurso(request,response);
-        if(op==4) eliminarCurso(request,response);
+        int op = Integer.parseInt(request.getParameter("opc"));
+        if (op == 1) listarCursos(request, response);
+        if (op == 2) insertarCurso(request, response);
+        if (op == 3) actualizarCurso(request, response);
+        if (op == 4) eliminarCurso(request, response);
     }
 
     protected void listarCursos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");      
         List<Curso> cursos = cursoDAO.listarTodos();
-        request.setAttribute("dato", cursos);     
-        // Verificación de los datos recibidos
-        System.out.println("Cursos recibidos: ");
-        for (Curso curso : cursos) {
-            System.out.println("Código: " + curso.getIdCurso()+ ", Nombre: " + curso.getNombre());
-        }
+        request.setAttribute("dato", cursos);
         String pag ="vistas.admin/crudCursos.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
     }
-     
-    
-      protected void insertarCurso(HttpServletRequest request, HttpServletResponse response)
+
+    protected void insertarCurso(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-      response.setContentType("text/html;charset=UTF-8");
-        
+        response.setContentType("text/html;charset=UTF-8");
+
         String codigo = request.getParameter("codigo");
         String nombre = request.getParameter("nombre");
         double precio = Double.parseDouble(request.getParameter("precio"));
         String categoria = request.getParameter("categoria");
 
-            Curso nuevoCurso = new Curso();
-            nuevoCurso.setIdCurso(codigo);
-            nuevoCurso.setNombre(nombre);
-            nuevoCurso.setPrecio(precio);
-            nuevoCurso.setCategoría(categoria);
+        Curso nuevoCurso = new Curso();
+        nuevoCurso.setIdCurso(codigo);
+        nuevoCurso.setNombre(nombre);
+        nuevoCurso.setPrecio(precio);
+        nuevoCurso.setCategoría(categoria);
 
-                boolean insercionExitosa = cursoDAO.insertarCurso(nuevoCurso);
+        boolean insercionExitosa = cursoDAO.insertarCurso(nuevoCurso);
 
-            if (insercionExitosa) {
-                  System.out.println("Curso insertado correctamente");
-              } else {
-                  System.out.println("Error al insertar el curso");
-         }
+        if (insercionExitosa) {
+            System.out.println("Curso insertado correctamente");
+        } else {
+            System.out.println("Error al insertar el curso");
+        }
 
         listarCursos(request, response);
     }
 
-        protected void actualizarCurso(HttpServletRequest request, HttpServletResponse response)
+    protected void actualizarCurso(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
-    
-            String idCurso = request.getParameter("idCurso");
-            String nombre = request.getParameter("nombre");
-         double precio = Double.parseDouble(request.getParameter("precio"));
-           String categoria = request.getParameter("categoria");
+        response.setContentType("text/html;charset=UTF-8");
+
+        String idCurso = request.getParameter("idCurso");
+        String nombre = request.getParameter("nombre");
+        double precio = Double.parseDouble(request.getParameter("precio"));
+        String categoria = request.getParameter("categoria");
 
         Curso cursoActualizado = new Curso();
         cursoActualizado.setIdCurso(idCurso);
@@ -89,7 +80,7 @@ public class controlCursos extends HttpServlet {
         cursoActualizado.setPrecio(precio);
         cursoActualizado.setCategoría(categoria);
 
-    boolean actualizacionExitosa = cursoDAO.actualizarCurso(cursoActualizado);
+        boolean actualizacionExitosa = cursoDAO.actualizarCurso(cursoActualizado);
 
         if (actualizacionExitosa) {
             System.out.println("Curso actualizado correctamente");
@@ -100,22 +91,22 @@ public class controlCursos extends HttpServlet {
         listarCursos(request, response);
     }
 
-        protected void eliminarCurso(HttpServletRequest request, HttpServletResponse response)
+    protected void eliminarCurso(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
 
-    String idCurso = request.getParameter("idCurso");
+        String idCurso = request.getParameter("id");
 
-    boolean eliminacionExitosa = cursoDAO.eliminarCurso(idCurso);
+        boolean eliminacionExitosa = cursoDAO.eliminarCurso(idCurso);
 
-    if (eliminacionExitosa) {
-        System.out.println("Curso eliminado correctamente");
-    } else {
-        System.out.println("Error al eliminar el curso");
+        if (eliminacionExitosa) {
+            System.out.println("Curso eliminado correctamente");
+        } else {
+            System.out.println("Error al eliminar el curso");
+        }
+
+        listarCursos(request, response);
     }
-
-    listarCursos(request, response);
-}
 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
