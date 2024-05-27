@@ -11,6 +11,7 @@ package modelo;
 public class tipoProyecto {
     private String codTipo;
     private String nomTipo;
+    private int total;
     private Proyecto proyecto;
 
     public String getCodTipo() {
@@ -36,6 +37,14 @@ public class tipoProyecto {
     public void setProyecto(Proyecto proyecto) {
         this.proyecto = proyecto;
     }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
     
-    
+   
 }

@@ -20,10 +20,6 @@
         <servlet-name>ProyectoControl</servlet-name>
         <servlet-class>controlador.ProyectoControl</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>GraficoProyecto</servlet-name>
-        <servlet-class>controlador.GraficoProyecto</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>prueba</servlet-name>
         <url-pattern>/prueba</url-pattern>
@@ -43,10 +39,6 @@
     <servlet-mapping>
         <servlet-name>controlCursos</servlet-name>
         <url-pattern>/controlCursos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GraficoProyecto</servlet-name>
-        <url-pattern>/GraficoProyecto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
