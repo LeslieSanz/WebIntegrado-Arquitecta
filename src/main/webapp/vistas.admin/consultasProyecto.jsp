@@ -1,13 +1,7 @@
 <%@page import="dao.*,modelo.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Consultas | Proyectos </title>
-        <link rel="icon" href="${pageContext.request.contextPath}/img/LOGO AZUL.png" type="image/png">
-    </head>
-    <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <!--Inicio::App Wrapper-->
     <div class="app-wrapper">
         <%@include file="menu.jsp"%>
@@ -58,17 +52,13 @@
                                 <div class="form-group">
                                     <label>Seleccione tipo de Proyecto</label>
                                     <select class="form-control" name="cbe" onchange="submit()">
-                                        <option>--Elegir--</option>
-                                      <%
-                                     for (tipoProyecto x:tP.ListarTodos()){
-                                         if(codrol == x.getCodTipo()){
-                                           out.print("<option value="+x.getCodTipo()+" selected>"+x.getNomTipo());
-                                         }else{
-                                           out.print("<option value="+x.getCodTipo()+">"+x.getNomTipo());
-                                         }
-                                        }
-
-                                    %>
+                                        <option value="" <%= codrol.isEmpty() ? "selected" : "" %>>--Elegir--</option>
+                                        <%
+                                            for (tipoProyecto x : tP.ListarTodos()) {
+                                                String selected = codrol.equals(x.getCodTipo()) ? "selected" : "";
+                                                out.print("<option value=\"" + x.getCodTipo() + "\" " + selected + ">" + x.getNomTipo() + "</option>");
+                                            }
+                                        %>
                                     </select> 
                                 </div>
                             </form>
@@ -89,30 +79,16 @@
                                 <tbody>
                                     <%
                                         for(Proyecto x: p.ListarPorTipo(codrol)){
-                                        out.print("<tr><td>"+x.getCod()
-                                                    +"<td>"+x.getTipo()
-                                                    +"<td>"+x.getNombre()
-                                                    +"<td>"+x.getDescrip_corta()
-                                                    +"<td>"+x.getDescr_larga()
-                                                    );
-                                            
-                                        if(x.getTipo()== "T001"){ //Si es admin, van a mostrarse los proyectos que ha agregado
-                                        %>
-                                        
-                                       <% } else if(x.getTipo()== "T002"){  //
-                                       %>
-                                      
-                                       <% } else if(x.getTipo()== "T003"){  //
-                                       %>
-                                      
-                                       
-                                   
-                                <% 
-                                    }
-                                  }
-                                %>
+                                            out.print("<tr><td>" + x.getCod()
+                                                    + "<td>" + x.getTipo()
+                                                    + "<td>" + x.getNombre()
+                                                    + "<td>" + x.getDescrip_corta()
+                                                    + "<td>" + x.getDescr_larga()
+                                                    + "</td></tr>");
+                                        }
+                                    %>
                                 </tbody>
-                                </table>
+                          </table>
                           </div>
                     </div>
                 </div>
@@ -123,4 +99,6 @@
         
     </div>
     <!--end::App Wrapper-->
+</body>
 </html>
+

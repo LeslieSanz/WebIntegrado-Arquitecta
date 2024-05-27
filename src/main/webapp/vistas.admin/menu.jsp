@@ -208,19 +208,19 @@
                                 <li class="nav-item">
                                     <a href="${pageContext.request.contextPath}/vistas.admin/graficoCompras.jsp" class="nav-link">
                                         <i class="nav-icon fas fa-chart-pie"></i>
-                                        <p>Gráfico 1</p>
+                                        <p>Reportes de Compras</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="${pageContext.request.contextPath}/vistas.admin/graficoCursos.jsp" class="nav-link">
                                         <i class="nav-icon fas fa-chart-area"></i>
-                                        <p>Gráfico 2</p>
+                                        <p>Reporte de Cursos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="${pageContext.request.contextPath}/vistas.admin/graficoProyecto.jsp" class="nav-link">
                                         <i class="nav-icon fas fa-chart-bar"></i>
-                                        <p>Gráfico 3</p>
+                                        <p>Cantidad de Proyectos</p>
                                     </a>
                                 </li>
                             </ul>
