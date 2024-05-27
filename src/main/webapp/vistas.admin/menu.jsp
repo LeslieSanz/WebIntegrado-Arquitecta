@@ -185,6 +185,14 @@
                                     </a>
                                 </li>
                             </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="${pageContext.request.contextPath}/vistas.admin/consultasProyecto.jsp" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-shop"></i>
+                                        <p>Proyectos</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         
                         <li class="nav-item">

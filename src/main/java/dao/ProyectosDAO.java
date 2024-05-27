@@ -123,6 +123,29 @@ public class ProyectosDAO {
         } 
     }
     
+     
+    public List<Proyecto> ListarPorTipo(String codrol){
+        List<Proyecto> lista=new ArrayList();
+        Connection cn=MySQLConexion.getConexion();
+        try{
+            String sql="SELECT codProy, codTipo, nombre, descrip_cor, descrip_lar FROM proyecto WHERE codTipo=?";
+            PreparedStatement st=cn.prepareStatement(sql);
+            st.setString(1, codrol);
+            ResultSet rs=st.executeQuery();
+            while(rs.next()){
+                Proyecto p=new Proyecto();
+                p.setCod(rs.getString(1));
+                p.setTipo(rs.getString(2));
+                p.setNombre(rs.getString(3));
+                p.setDescrip_corta(rs.getString(4));
+                p.setDescr_larga(rs.getString(5));
+                lista.add(p);
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return lista;
+    }
     
     
 }
