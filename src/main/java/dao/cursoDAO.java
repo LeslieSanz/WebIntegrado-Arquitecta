@@ -34,56 +34,58 @@ public class cursoDAO {
     }
     
      public boolean insertarCurso(Curso curso) {
-        Connection cn = null;
-        PreparedStatement st = null;
+    Connection cn = null;
+    PreparedStatement st = null;
+    try {
+        cn = MySQLConexion.getConexion();
+        String sql = "INSERT INTO curso (codCurso, nombreCurso, precio, Categoria_codCat) VALUES (?, ?, ?, ?)";
+        st = cn.prepareStatement(sql);
+        st.setString(1, curso.getIdCurso());
+        st.setString(2, curso.getNombre());
+        st.setDouble(3, curso.getPrecio());
+        st.setString(4, curso.getCategoría());
+        int resultado = st.executeUpdate();
+        return resultado > 0;
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        return false;
+    } finally {
         try {
-            cn = MySQLConexion.getConexion();
-            String sql = "INSERT INTO curso (codCurso, nombreCurso, precio, Categoria_codCat) VALUES (?, ?, ?, ?)";
-            st = cn.prepareStatement(sql);
-            st.setString(1, curso.getIdCurso());
-            st.setString(2, curso.getNombre());
-            st.setDouble(3, curso.getPrecio());
-            st.setString(4, curso.getCategoría());
-            int resultado = st.executeUpdate();
-            return resultado > 0;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return false;
-        } finally {
-            try {
-                if (st != null) st.close();
-                if (cn != null) cn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            if (st != null) st.close();
+            if (cn != null) cn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+}
+
 
     public boolean actualizarCurso(Curso curso) {
-        Connection cn = null;
-        PreparedStatement st = null;
+    Connection cn = null;
+    PreparedStatement st = null;
+    try {
+        cn = MySQLConexion.getConexion();
+        String sql = "UPDATE curso SET nombreCurso = ?, precio = ?, Categoria_codCat = ? WHERE codCurso = ?";
+        st = cn.prepareStatement(sql);
+        st.setString(1, curso.getNombre());
+        st.setDouble(2, curso.getPrecio());
+        st.setString(3, curso.getCategoría());
+        st.setString(4, curso.getIdCurso());
+        int resultado = st.executeUpdate();
+        return resultado > 0;
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        return false;
+    } finally {
         try {
-            cn = MySQLConexion.getConexion();
-            String sql = "UPDATE curso SET nombreCurso = ?, precio = ?, Categoria_codCat = ? WHERE codCurso = ?";
-            st = cn.prepareStatement(sql);
-            st.setString(1, curso.getNombre());
-            st.setDouble(2, curso.getPrecio());
-            st.setString(3, curso.getCategoría());
-            st.setString(4, curso.getIdCurso());
-            int resultado = st.executeUpdate();
-            return resultado > 0;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return false;
-        } finally {
-            try {
-                if (st != null) st.close();
-                if (cn != null) cn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            if (st != null) st.close();
+            if (cn != null) cn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+}
+
 
     public boolean eliminarCurso(String idCurso) {
     Connection cn = null;

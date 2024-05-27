@@ -22,13 +22,14 @@ public class controlCursos extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        int op = Integer.parseInt(request.getParameter("opc"));
-        if (op == 1) listarCursos(request, response);
-        if (op == 2) insertarCurso(request, response);
-        if (op == 3) actualizarCurso(request, response);
-        if (op == 4) eliminarCurso(request, response);
+    response.setContentType("text/html;charset=UTF-8");
+    int op = Integer.parseInt(request.getParameter("opc"));
+    if (op == 1) listarCursos(request, response);
+    if (op == 2) insertarCurso(request, response);
+    if (op == 3) actualizarCurso(request, response);
+    if (op == 4) eliminarCurso(request, response);
     }
+
 
     protected void listarCursos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

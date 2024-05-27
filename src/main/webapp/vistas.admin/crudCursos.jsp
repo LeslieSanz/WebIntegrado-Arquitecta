@@ -87,14 +87,14 @@
         </div>
         
         <!-- Modal Agregar Curso -->
-        <div class="modal fade" id="agregarCurso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
+<div class="modal fade" id="agregarCurso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Agregar curso</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
+            </div>
+            <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/controlCursos?opc=2" method="post">
                     <div class="form-group">
                         <label>Código</label>
@@ -114,20 +114,21 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
-              </div>
             </div>
-          </div>
         </div>
+    </div>
+</div>
+
         
         <!-- Modal Modificar Curso -->
-        <div class="modal fade" id="modificarCurso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
+<div class="modal fade" id="modificarCurso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Modificar curso</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
+            </div>
+            <div class="modal-body">
                 <form action="${pageContext.request.contextPath}/controlCursos?opc=3" method="post">
                     <div class="form-group">
                         <label>Código</label>
@@ -147,13 +148,11 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Actualizar</button>
                 </form>
-              </div>
             </div>
-          </div>
         </div>
-        
-    </main>
+    </div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
