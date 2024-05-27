@@ -79,18 +79,24 @@
                     <div class="card">
                         <div class="card-body">
                             <table id="tablax" class="table table-striped table-hover">
-                           
+                           <thead class="bg-dark-subtle">
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Tipo</th>
+                                    <th>Cantidad de Proyectos Subidos</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                                <% String anParam1 = request.getParameter("tan");
+                                <% 
                                     String tipo1 = request.getParameter("opc");
-                                    if (anParam1 != null && tipo1 != null) {
-                                        compraDAO obj = new compraDAO();
-                                        int an = Integer.parseInt(anParam1);
-                                        for (Compra x : obj.LisComprasPorMes(an)) {
+                                    if (tipo1 != null) {
+                                        tipoProyectDAO obj = new tipoProyectDAO();
+                                        for (tipoProyecto x : obj.mostrarGraficoTipo()) {
                                 %>
                                 <tr>
-                                    <td><%= x.Lmes() %></td>
-                                    <td><%= x.getTotalPorMes() %></td>
+                                    <td><%= x.getCodTipo()%></td>
+                                    <td><%= x.getNomTipo() %></td>
+                                    <td><%= x.getProyecto().getCantidad()%></td>
                                 </tr>
                                 <%      }
                                     }
