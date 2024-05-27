@@ -40,6 +40,17 @@
         <servlet-name>controlCursos</servlet-name>
         <url-pattern>/controlCursos</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>controlCompras</servlet-name>
+        <url-pattern>/controlCompras</url-pattern>
+    </servlet-mapping>
+
+<servlet>
+        <servlet-name>controlCompras</servlet-name>
+        <servlet-class>controlador.controlCompras</servlet-class>
+    </servlet>
+    
     <session-config>
         <session-timeout>
             30
