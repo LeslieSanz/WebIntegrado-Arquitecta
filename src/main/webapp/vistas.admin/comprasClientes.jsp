@@ -55,12 +55,14 @@
                               <thead class="bg-dark-subtle">
                                   <th>Código de compra
                                   <th>Fecha
+                                  <th>Cantidad
                                   <th>Monto total
                               </thead>
                                  <%
                                     for(Compra x:compras){
                                     out.print("<tr><td>"+x.getCod()
                                                +"<td>"+x.getFecha()
+                                               +"<td>"+x.getCantCursos()
                                                +"<td>"+x.getMonto()
                                                );
                                      }
