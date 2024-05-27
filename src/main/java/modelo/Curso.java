@@ -5,6 +5,9 @@ public class Curso {
     private String nombre;
     private String categoría;
     private double precio;
+    
+    //Para el procedimiento almacenado
+    private int cantCompras;
 
     public String getNombre() {
         return nombre;
@@ -36,6 +39,14 @@ public class Curso {
 
     public void setIdCurso(String idCurso) {
         this.idCurso = idCurso;
+    }
+
+    public int getCantCompras() {
+        return cantCompras;
+    }
+
+    public void setCantCompras(int cantCompras) {
+        this.cantCompras = cantCompras;
     }
 
 
