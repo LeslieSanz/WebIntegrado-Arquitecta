@@ -48,13 +48,12 @@ public class ProyectosDAO {
     public void agregarProyecto(Proyecto proyecto) {
     Connection cn = MySQLConexion.getConexion();
     try {
-        String sql = "INSERT INTO proyecto (codProy, nombre, codTipo, descrip_cor, descrip_lar) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO proyecto (nombre, codTipo, descrip_cor, descrip_lar) VALUES (?, ?, ?, ?)";
         PreparedStatement st = cn.prepareStatement(sql);
-        st.setString(1, proyecto.getCod());
-        st.setString(2, proyecto.getNombre());
-        st.setString(3, proyecto.getTipo());
-        st.setString(4, proyecto.getDescrip_corta());
-        st.setString(5, proyecto.getDescr_larga());
+        st.setString(1, proyecto.getNombre());
+        st.setString(2, proyecto.getTipo());
+        st.setString(3, proyecto.getDescrip_corta());
+        st.setString(4, proyecto.getDescr_larga());
         st.executeUpdate();
         
         System.out.println("Proyecto agregado exitosamente.");
