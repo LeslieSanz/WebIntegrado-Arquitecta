@@ -110,10 +110,6 @@
                             </div>
                             <div class="modal-body">
                                 <form action="${pageContext.request.contextPath}/ProyectoControl?opc=2" method="post">
-                                    <div class="mb-3">
-                                        <label for="cod" class="form-label">Código</label>
-                                        <input type="text" class="form-control" name="cod" id="cod">
-                                    </div>
 
                                     <div class="mb-3">
                                         <label for="nom" class="form-label">Nombre</label>
