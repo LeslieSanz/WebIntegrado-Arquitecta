@@ -11,6 +11,7 @@ package modelo;
 public class tipoProyecto {
     private String codTipo;
     private String nomTipo;
+    private Proyecto proyecto;
 
     public String getCodTipo() {
         return codTipo;
@@ -26,6 +27,14 @@ public class tipoProyecto {
 
     public void setNomTipo(String nomTipo) {
         this.nomTipo = nomTipo;
+    }
+
+    public Proyecto getProyecto() {
+        return proyecto;
+    }
+
+    public void setProyecto(Proyecto proyecto) {
+        this.proyecto = proyecto;
     }
     
     

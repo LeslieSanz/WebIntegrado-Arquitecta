@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Proyecto;
 import modelo.tipoProyecto;
 import util.MySQLConexion;
 
@@ -33,6 +34,33 @@ public class tipoProyectDAO {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+        return lista;
+    }
+    
+    
+        public List<tipoProyecto> mostrarGraficoTipo() {
+        List<tipoProyecto> lista = new ArrayList();
+        Connection cn = MySQLConexion.getConexion();
+        try {
+            String sql = "{call contarProyectosPorTipo()}";
+            PreparedStatement st = cn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                tipoProyecto v = new tipoProyecto();
+                v.setCodTipo(rs.getString(1));
+                v.setNomTipo(rs.getString(2));
+
+                Proyecto proy = new Proyecto();
+                proy.setCantidad(rs.getInt(3)); // Capturar la cantidad de proyectos
+
+                v.setProyecto(proy); // Asocia el proyecto con el tipo de proyecto
+
+                lista.add(v);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
         return lista;
     }
 }

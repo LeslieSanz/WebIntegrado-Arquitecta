@@ -15,6 +15,7 @@ public class Proyecto {
     private String descr_larga;
     private byte[] imagen;
     private String tipo;
+    private int cantidad;
 
     public String getTipo() {
         return tipo;
@@ -65,6 +66,14 @@ public class Proyecto {
 
     public void setImagen(byte[] imagen) {
         this.imagen = imagen;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
    
