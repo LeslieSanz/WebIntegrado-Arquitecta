@@ -34,6 +34,39 @@ public class compraDAO {
         ex.printStackTrace();
     } 
     return lista;
+    }
+    
+    public List<Compra> LisComprasPorMes(int an) {
+    List<Compra> lista = new ArrayList<>();
+    Connection cn = MySQLConexion.getConexion();
+    try {
+        String sql = "{call ObtenerTotalPorMes(?)}";
+        PreparedStatement st = cn.prepareStatement(sql);
+        st.setInt(1, an);
+        System.out.println("Ejecutando procedimiento almacenado con año: " + an);
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            Compra c = new Compra();
+            c.setMes(rs.getInt(1));
+            c.setTotalPorMes(rs.getDouble(2));
+            System.out.println("Mes: " + c.getMes() + ", Total: " + c.getTotalPorMes()); // Verifica los datos recuperados
+            lista.add(c);
+        }
+        rs.close();
+        st.close();
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    } finally {
+        try {
+            if (cn != null) cn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    System.out.println("Tamaño de la lista: " + lista.size()); // Verifica el tamaño de la lista resultante
+    return lista;
 }
+
+
 
 }

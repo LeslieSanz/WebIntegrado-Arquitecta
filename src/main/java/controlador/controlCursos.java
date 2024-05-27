@@ -24,20 +24,20 @@ public class controlCursos extends HttpServlet {
     Curso curso = new Curso();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         int op=Integer.parseInt(request.getParameter("opc"));
         if(op==1) listarCursos(request,response);
-//        if(op==2) insertarCurso(request,response);
+        if(op==2) insertarCurso(request,response);
+        if(op==3) actualizarCurso(request,response);
+        if(op==4) eliminarCurso(request,response);
     }
 
     protected void listarCursos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
+        response.setContentType("text/html;charset=UTF-8");      
         List<Curso> cursos = cursoDAO.listarTodos();
-        request.setAttribute("dato", cursos);
-        
+        request.setAttribute("dato", cursos);     
         // Verificación de los datos recibidos
         System.out.println("Cursos recibidos: ");
         for (Curso curso : cursos) {
@@ -46,6 +46,77 @@ public class controlCursos extends HttpServlet {
         String pag ="vistas.admin/crudCursos.jsp";
         request.getRequestDispatcher(pag).forward(request, response);
     }
+     
+    
+      protected void insertarCurso(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+      response.setContentType("text/html;charset=UTF-8");
+        
+        String codigo = request.getParameter("codigo");
+        String nombre = request.getParameter("nombre");
+        double precio = Double.parseDouble(request.getParameter("precio"));
+        String categoria = request.getParameter("categoria");
+
+            Curso nuevoCurso = new Curso();
+            nuevoCurso.setIdCurso(codigo);
+            nuevoCurso.setNombre(nombre);
+            nuevoCurso.setPrecio(precio);
+            nuevoCurso.setCategoría(categoria);
+
+                boolean insercionExitosa = cursoDAO.insertarCurso(nuevoCurso);
+
+            if (insercionExitosa) {
+                  System.out.println("Curso insertado correctamente");
+              } else {
+                  System.out.println("Error al insertar el curso");
+         }
+
+        listarCursos(request, response);
+    }
+
+        protected void actualizarCurso(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+    
+            String idCurso = request.getParameter("idCurso");
+            String nombre = request.getParameter("nombre");
+         double precio = Double.parseDouble(request.getParameter("precio"));
+           String categoria = request.getParameter("categoria");
+
+        Curso cursoActualizado = new Curso();
+        cursoActualizado.setIdCurso(idCurso);
+        cursoActualizado.setNombre(nombre);
+        cursoActualizado.setPrecio(precio);
+        cursoActualizado.setCategoría(categoria);
+
+    boolean actualizacionExitosa = cursoDAO.actualizarCurso(cursoActualizado);
+
+        if (actualizacionExitosa) {
+            System.out.println("Curso actualizado correctamente");
+        } else {
+            System.out.println("Error al actualizar el curso");
+        }
+
+        listarCursos(request, response);
+    }
+
+        protected void eliminarCurso(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+
+    String idCurso = request.getParameter("idCurso");
+
+    boolean eliminacionExitosa = cursoDAO.eliminarCurso(idCurso);
+
+    if (eliminacionExitosa) {
+        System.out.println("Curso eliminado correctamente");
+    } else {
+        System.out.println("Error al eliminar el curso");
+    }
+
+    listarCursos(request, response);
+}
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

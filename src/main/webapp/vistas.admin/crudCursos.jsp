@@ -7,6 +7,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Cursos</title>
+    <!-- Agregar estilos y scripts de DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 </head>
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
 <div class="app-wrapper">
@@ -19,7 +21,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3 class="mb-0">El CRUD de cursos va acá</h3>
+                        <h3 class="mb-0">Mantenimiento de cursos</h3>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-end">
@@ -56,22 +58,28 @@
                             </thead>
                             <tbody>
                                 <%
-                                for(Curso c : cursos){
-                                out.print("<tr><td>"+c.getIdCurso()
-                                           +"<td>"+c.getNombre()
-                                           +"<td>"+c.getPrecio()
-                                           +"<td>"+c.getCategoría()
-                                           );
-                                %>
-                                <td><a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modificarCurso" onclick="editarCurso('<%=c.getIdCurso()%>', '<%=c.getNombre()%>', '<%=c.getPrecio()%>', '<%=c.getCategoría()%>')">
-                                       <i class="fas fa-edit"></i>
-                                </a></td>
-                                <td><a href="<%=request.getContextPath()%>/controlCursos?opc=4&idCurso=<%=c.getIdCurso()%>" class="btn btn-danger btn-sm">
-                                       <i class="fas fa-trash"></i>
-                                </a></td>
-                                <%
-                                    }
-                                %>
+    for(Curso c : cursos){
+%>
+    <tr>
+        <td><%= c.getIdCurso() %></td>
+        <td><%= c.getNombre() %></td>
+        <td><%= c.getPrecio() %></td>
+        <td><%= c.getCategoría() %></td>
+        <td>
+            <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modificarCurso" onclick="editarCurso('<%= c.getIdCurso() %>','<%= c.getNombre() %>','<%= c.getPrecio() %>','<%= c.getCategoría() %>')">
+                <i class="fas fa-edit"></i> 
+            </a>
+        </td>
+        <td>
+            <a href="#" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('<%= c.getIdCurso() %>')">
+        <i class="fas fa-trash"></i> 
+        </a>
+        </td>
+    </tr>
+<%
+    }
+%>
+
                             </tbody>
                       </table>
                       </div>
@@ -91,7 +99,7 @@
                 <form action="${pageContext.request.contextPath}/controlCursos?opc=2" method="post">
                     <div class="form-group">
                         <label>Código</label>
-                        <input type="text" name="nombre" class="form-control">
+                        <input type="text" name="codigo" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Nombre</label>
@@ -121,7 +129,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="${pageContext.request.contextPath}/controlCurso?opc=3" method="post">
+                <form action="${pageContext.request.contextPath}/controlCursos?opc=3" method="post">
                     <input type="hidden" id="idCurso" name="idCurso">
                     <div class="form-group">
                         <label>Nombre</label>
@@ -134,7 +142,7 @@
                     <div class="form-group">
                         <label>Categoría</label>
                         <input type="text" id="categoria" name="categoria" class="form-control">
-                    </div>
+                                       </div>
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </form>
               </div>
@@ -144,13 +152,61 @@
     </main>
 </div>
 
+<!-- Scripts para DataTables -->
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
 <script>
-function editarCurso(id, nombre, precio, categoria) {
-    document.getElementById('idCurso').value = id;
-    document.getElementById('nombre').value = nombre;
-    document.getElementById('precio').value = precio;
-    document.getElementById('categoria').value = categoria;
-}
+    $(document).ready(function() {
+        $('#example2').DataTable({
+            language: {
+                processing: "Procesando...",
+                search: "Buscar:",
+                lengthMenu: "Mostrar _MENU_ cursos",
+                info: "Mostrando _START_ a _END_ de _TOTAL_ cursos",
+                infoEmpty: "Mostrando 0 a 0 de 0 cursos",
+                infoFiltered: "(filtrado de _MAX_ cursos totales)",
+                infoPostFix: "",
+                loadingRecords: "Cargando...",
+                zeroRecords: "No se encontraron cursos coincidentes",
+                emptyTable: "No hay datos disponibles en la tabla",
+                paginate: {
+                    first: "Primero",
+                    previous: "Anterior",
+                    next: "Siguiente",
+                    last: "Último"
+                },
+                aria: {
+                    sortAscending: ": Activar para ordenar la columna en orden ascendente",
+                    sortDescending: ": Activar para ordenar la columna en orden descendente"
+                }
+            },
+            scrollY: 400,
+            lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "Todos"]]
+        });
+    });
+</script>
+<script>
+    function confirmarEliminacion(idCurso) {
+        var confirmacion = confirm("¿Está seguro que desea eliminar el curso seleccionado?");
+        if (confirmacion) {
+            window.location.href = "<%= request.getContextPath() %>/controlCursos?opc=4&idCurso=" + idCurso;
+        } else {
+            // El usuario ha cancelado la eliminación
+            console.log("Eliminación cancelada por el usuario.");
+        }
+    }
+</script>
+
+<script>
+    function editarCurso(id, nombre, precio, categoria) {
+        document.getElementById('idCurso').value = id;
+        document.getElementById('nombre').value = nombre;
+        document.getElementById('precio').value = precio;
+        document.getElementById('categoria').value = categoria;
+    }
 </script>
 </body>
 </html>
+
