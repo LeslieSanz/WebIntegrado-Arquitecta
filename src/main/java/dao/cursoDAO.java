@@ -152,4 +152,36 @@ public class cursoDAO {
         }
         return lista;
     }
+    
+    public List<Curso> LisCantCursosPorAnio(int an) {
+    List<Curso> lista = new ArrayList<>();
+    Connection cn = MySQLConexion.getConexion();
+    try {
+        String sql = "{call ObtenerCantidadVentasPorCurso(?)}";
+        PreparedStatement st = cn.prepareStatement(sql);
+        st.setInt(1, an);
+        System.out.println("Ejecutando procedimiento almacenado con año de cursos: " + an);
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            Curso c = new Curso();
+            c.setIdCurso(rs.getString(1));
+            c.setNombre(rs.getString(2));
+            c.setCantCompras(rs.getInt(3));
+            System.out.println("Mes: " + c.getIdCurso()+ ", Total: " + c.getNombre() + "Cant:" + c.getCantCompras()); // Verifica los datos recuperados
+            lista.add(c);
+        }
+        rs.close();
+        st.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (cn != null) cn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Tamaño de la lista: " + lista.size()); // Verifica el tamaño de la lista resultante
+        return lista;
+    }
 }
