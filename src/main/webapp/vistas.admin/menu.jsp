@@ -178,6 +178,12 @@
                                         <p>Compras</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="${pageContext.request.contextPath}/vistas.admin/consultasCurso.jsp" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-shop"></i>
+                                            <p>Cursos</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         
