@@ -2,12 +2,14 @@
 <%@page import="java.util.List"%>
 <%@page import="modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Usuarios</title>
         <link rel="icon" href="${pageContext.request.contextPath}/img/LOGO AZUL.png" type="image/png">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     
     <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -85,9 +87,10 @@
                                         <i class="fas fa-edit"></i> 
                                       </a>
 
-                                    <td><a href="${pageContext.request.contextPath}/controlUsuario?opc=5&id=<%=x.getCod()%>" class="btn btn-danger btn-sm">
+                                    <td><a href="${pageContext.request.contextPath}/controlUsuario?opc=5&id=<%=x.getCod()%>" class="btn btn-danger btn-sm delete-user" data-user-id="<%=x.getCod()%>">
                                            <i class="fas fa-trash"></i>
-                                    </a>
+                                            </a></td>
+
                                     <%
                                         }
                                     %>
@@ -259,7 +262,32 @@
             });
         });
     </script>
-  
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.delete-user').on('click', function(event) {
+            event.preventDefault();
+            var url = $(this).attr('href');
+            var userId = $(this).data('user-id');
+            
+            swal({
+                title: "¿Está seguro que desea eliminar el usuario seleccionado?",
+                text: "Una vez eliminado no se podrá revertir los cambios",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    // Redirigir a la URL para eliminar el usuario
+                    window.location.href = url;
+                } else {
+                    dispose();
+                }
+            });
+        });
+    });
+</script>
 
     
     </body>

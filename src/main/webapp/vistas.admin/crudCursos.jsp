@@ -7,6 +7,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Cursos</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Agregar estilos y scripts de DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 </head>
@@ -70,11 +71,10 @@
                 <i class="fas fa-edit"></i> 
             </a>
         </td>
-        <td>
-            <a href="#" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('<%= c.getIdCurso() %>')">
-        <i class="fas fa-trash"></i> 
-        </a>
-        </td>
+        
+        <td><a href="${pageContext.request.contextPath}/controlCursos?opc=4&id=<%=c.getIdCurso()%>" class="btn btn-danger btn-sm delete-course" data-course-id="<%=c.getIdCurso()%>">
+            <i class="fas fa-trash"></i>
+        </a></td>   
     </tr>
 <%
     }
@@ -142,7 +142,7 @@
                     <div class="form-group">
                         <label>Categoría</label>
                         <input type="text" id="categoria" name="categoria" class="form-control">
-                                       </div>
+                    </div>
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </form>
               </div>
@@ -187,16 +187,32 @@
         });
     });
 </script>
+
 <script>
-    function confirmarEliminacion(idCurso) {
-        var confirmacion = confirm("¿Está seguro que desea eliminar el curso seleccionado?");
-        if (confirmacion) {
-            window.location.href = "<%= request.getContextPath() %>/controlCursos?opc=4&idCurso=" + idCurso;
-        } else {
-            // El usuario ha cancelado la eliminación
-            console.log("Eliminación cancelada por el usuario.");
-        }
-    }
+    $(document).ready(function() {
+        $('.delete-course').on('click', function(event) {
+            event.preventDefault();
+            var url = $(this).attr('href');
+            var courseId = $(this).data('course-id');
+        
+            // Show the SweetAlert confirmation
+            swal({
+                title: "¿Está seguro que desea eliminar el curso seleccionado?",
+                text: "Una vez eliminado no se podrá revertir",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    // Redireccionar a la URL de eliminación si el usuario confirma
+                    window.location.href = url;
+                } else {
+                    swal("Operación cancelada");
+                }
+            });
+        });
+    });
 </script>
 
 <script>
@@ -209,4 +225,3 @@
 </script>
 </body>
 </html>
-

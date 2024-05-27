@@ -4,6 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Dashboard</title>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <link rel="icon" href="${pageContext.request.contextPath}/img/LOGO AZUL.png" type="image/png">
         <!--Meta Tags-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
