@@ -199,7 +199,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../forms/general.html" class="nav-link">
+                                    <a href="${pageContext.request.contextPath}/vistas.admin/graficoCompras.jsp" class="nav-link">
                                         <i class="nav-icon fas fa-chart-pie"></i>
                                         <p>Gráfico 1</p>
                                     </a>
