@@ -16,6 +16,15 @@ public class Compra {
     private double monto;
     private int cantCursos;
     
+    //Para el grafico
+    private int mes;
+    private double totalPorMes;
+    
+    public String Lmes(){
+        String vec[]={"","Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Set","Oct","Nov","Dic"};
+        return vec[mes];
+    }
+    
 
     public String getCod() {
         return cod;
@@ -55,6 +64,22 @@ public class Compra {
 
     public void setCantCursos(int cantCursos) {
         this.cantCursos = cantCursos;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public double getTotalPorMes() {
+        return totalPorMes;
+    }
+
+    public void setTotalPorMes(double totalPorMes) {
+        this.totalPorMes = totalPorMes;
     }
     
     
