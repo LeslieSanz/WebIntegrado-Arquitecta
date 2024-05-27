@@ -11,8 +11,11 @@ package modelo;
 public class Compra {
     private String cod;
     private String fecha;
-    private double monto;
     private Usuario codUsu;
+    //Para el procedimiento almacenado
+    private double monto;
+    private int cantCursos;
+    
 
     public String getCod() {
         return cod;
@@ -44,6 +47,14 @@ public class Compra {
 
     public void setCodUsu(Usuario codUsu) {
         this.codUsu = codUsu;
+    }
+
+    public int getCantCursos() {
+        return cantCursos;
+    }
+
+    public void setCantCursos(int cantCursos) {
+        this.cantCursos = cantCursos;
     }
     
     
