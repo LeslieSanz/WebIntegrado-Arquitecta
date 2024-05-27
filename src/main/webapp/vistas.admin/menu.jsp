@@ -217,7 +217,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../forms/general.html" class="nav-link">
+                                    <a href="${pageContext.request.contextPath}/vistas.admin/graficoProyecto.jsp" class="nav-link">
                                         <i class="nav-icon fas fa-chart-bar"></i>
                                         <p>Gráfico 3</p>
                                     </a>
