@@ -88,7 +88,7 @@
                             <thead class="bg-dark-subtle">
                                 <tr>
                                     <th>Mes</th>
-                                    <th>Monto recaudado por año</th>
+                                    <th>Monto recaudado</th>
                                 </tr>
                             </thead>
                             <tbody>
